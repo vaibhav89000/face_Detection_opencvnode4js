@@ -1,0 +1,12 @@
+<img id="image" alt="not found" src="" height="100%" width="100%">
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    console.log("hello");
+    const socket = io.connect('http://localhost:8000');
+    socket.on('image',(image)=>{
+        console.log('data',image);
+        const imageElm = document.getElementById('image');
+        imageElm.src = `data:image/jpeg;base64,${image}`;
+    });
+</script>
+<h1>hey</h1>
